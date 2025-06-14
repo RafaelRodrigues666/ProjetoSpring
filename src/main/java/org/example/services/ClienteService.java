@@ -4,7 +4,6 @@ import org.example.entities.Cliente;
 import org.example.exceptions.ResourceNotFoundException;
 import org.example.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,6 +39,8 @@ public class ClienteService {
     }
 
     public void deletar(Long id) {
-        clienteRepository.deleteById(id);
+        Cliente cliente = clienteRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado com id " + id));
+        clienteRepository.delete(cliente);
     }
 }
