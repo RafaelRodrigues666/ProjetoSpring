@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd11605-5a7f-4c13-987f-81ab06d1d48b" name="Changes" comment="SupplierController&#10;SupplierService">
-      <changelist_data name="RafaelRodrigues666" email="patriciaoliveira.po270@gmail.com" automatic="false" />
+    <list default="true" id="3cd11605-5a7f-4c13-987f-81ab06d1d48b" name="Changes" comment="UserController&#10;UserService">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/FornecedorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/FornecedorService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +146,39 @@
       <option name="project" value="LOCAL" />
       <updated>1749907443849</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="SupplierController&#10;SupplierService">
+      <option name="closed" value="true" />
+      <created>1749907525355</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1749907525355</updated>
+    </task>
+    <task id="LOCAL-00008" summary="SupplierController&#10;SupplierService">
+      <option name="closed" value="true" />
+      <created>1749907622528</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1749907622528</updated>
+    </task>
+    <task id="LOCAL-00009" summary="SupplierController&#10;SupplierService">
+      <option name="closed" value="true" />
+      <created>1749907688808</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1749907688808</updated>
+    </task>
+    <task id="LOCAL-00010" summary="UserController&#10;UserService">
+      <option name="closed" value="true" />
+      <created>1749908621737</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749908621737</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,7 +198,9 @@
     <MESSAGE value="GlobalExceptionHandler&#10;ResourceNotFoundException" />
     <MESSAGE value="PaymentMethodService" />
     <MESSAGE value="PaymentMethodController" />
+    <MESSAGE value="SupplierController&#10;SupplierService&#10;&#10;Signed-off-by: gustavorodriguessts &lt;gustavordrigues848@gmail.com&gt;" />
     <MESSAGE value="SupplierController&#10;SupplierService" />
-    <option name="LAST_COMMIT_MESSAGE" value="SupplierController&#10;SupplierService" />
+    <MESSAGE value="UserController&#10;UserService" />
+    <option name="LAST_COMMIT_MESSAGE" value="UserController&#10;UserService" />
   </component>
 </project>

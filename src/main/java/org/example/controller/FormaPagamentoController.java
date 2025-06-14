@@ -1,7 +1,5 @@
 package org.example.controller;
 
-
-import jakarta.persistence.Id;
 import org.example.entities.FormaPagamento;
 import org.example.exceptions.ResourceNotFoundException;
 import org.example.services.FormaPagamentoService;
@@ -12,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/forma-pagamentos")
+@RequestMapping("/formaPagamentos")
 public class FormaPagamentoController {
 
     @Autowired
@@ -23,7 +21,7 @@ public class FormaPagamentoController {
         return formaPagamentoService.listarTodos();
     }
 
-    @PostMapping("/{id}")
+    @PostMapping
     public FormaPagamento criar(@RequestBody FormaPagamento formaPagamento) {
         return formaPagamentoService.salvar(formaPagamento);
     }

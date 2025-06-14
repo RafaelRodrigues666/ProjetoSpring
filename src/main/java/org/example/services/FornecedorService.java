@@ -41,5 +41,6 @@ public class FornecedorService {
     public void deletar(Long id) {
         Fornecedor fornecedor = fornecedorRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Fornecedor não encontrado com id " + id));
+        fornecedorRepository.delete(fornecedor);
     }
 }
