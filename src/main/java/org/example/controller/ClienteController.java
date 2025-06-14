@@ -1,9 +1,9 @@
 package org.example.controller;
 
 import org.example.entities.Cliente;
+import org.example.exceptions.ResourceNotFoundException;
 import org.example.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,47 +13,40 @@ import java.util.List;
 @RequestMapping("/clientes")
 public class ClienteController {
 
-    private final ClienteService clienteService;
-
     @Autowired
-    public ClienteController(ClienteService clienteService) {
-        this.clienteService = clienteService;
-    }
+    private ClienteService clienteService;
 
-    // GET /api/clientes
     @GetMapping
-    public List<Cliente> listarTodos() {
+    public List<Cliente> listarTodosClientes() {
         return clienteService.listarTodos();
     }
 
-    // GET /api/clientes/{id}
-    @GetMapping("/{id}")
-    public ResponseEntity<Cliente> buscarPorId(@PathVariable Long id) {
-        Cliente cliente = clienteService.buscarPorId(id);
-        return ResponseEntity.ok(cliente);
-    }
-
-    // POST /api/clientes
     @PostMapping
-    public ResponseEntity<Cliente> criar(@RequestBody Cliente cliente) {
-        Cliente novoCliente = clienteService.salvar(cliente);
-        return ResponseEntity.status(HttpStatus.CREATED).body(novoCliente);
+    public Cliente criarCliente(@RequestBody Cliente cliente) {
+        return clienteService.salvar(cliente);
     }
 
-    // PUT /api/clientes/{id}
+    @GetMapping("/{id}")
+    public ResponseEntity<Cliente> buscarClientePorId(@PathVariable("id") Long id) {
+        return clienteService.buscarPorId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PutMapping("/{id}")
-    public ResponseEntity<Cliente> atualizar(@PathVariable Long id, @RequestBody Cliente cliente) {
-        Cliente existente = clienteService.buscarPorId(id);
-        existente.setNome(cliente.getNome());
-        existente.setTelefone(cliente.getTelefone());
-        Cliente atualizado = clienteService.salvar(existente);
-        return ResponseEntity.ok(atualizado);
+    public ResponseEntity<Cliente> atualizarCliente(@PathVariable("id") Long id, @RequestBody Cliente cliente) {
+        try {
+            Cliente atualizar = clienteService.atualizar(id, cliente);
+            return ResponseEntity.ok(atualizar);
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    // DELETE /api/clientes/{id}
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+    public ResponseEntity<Void> deletarCliente(@PathVariable("id") Long id) {
         clienteService.deletar(id);
         return ResponseEntity.noContent().build();
     }
+
 }
